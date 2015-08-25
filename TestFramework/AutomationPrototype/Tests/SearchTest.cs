@@ -15,9 +15,9 @@ using NUnit.Framework;
 
 namespace AutomationPrototype.Tests
 {
-    [TestFixture("Chrome")]
+
     [TestFixture("Firefox")]
-    [TestFixture("IE")]
+
     class SearchTest : BaseWebDriver
     {
         private string _browser;

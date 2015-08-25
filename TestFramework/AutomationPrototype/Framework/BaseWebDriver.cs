@@ -36,16 +36,19 @@ namespace AutomationPrototype.Framework
 
 
         [TestFixtureSetUp]
-        private void TestFixtureSetup()
+        public void SetupTestFixture()
         {
             // Instantiate the webdriver instance with the correct browser driver
             if (browserUnderTest == "Chrome")
-                prototypeDriver = new ChromeDriver(); // add the path for the chromedriver as a parameter
+                prototypeDriver = new ChromeDriver(); // need to add the path for the chromedriver as a parameter
             else if (browserUnderTest == "IE")
                 prototypeDriver = new InternetExplorerDriver();
             else
                 prototypeDriver = new FirefoxDriver();
 
+            prototypeDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+
+            logMessages("Starting test fixture with browser " + browserUnderTest);
         }
 
         [SetUp]
@@ -60,10 +63,12 @@ namespace AutomationPrototype.Framework
         [TearDown]
         public void TearDownTest()
         {
-            if(TestContext.CurrentContext.Result.Status == TestStatus.Failed)
+            if (TestContext.CurrentContext.Result.Status == TestStatus.Failed)
             {
                 // Handle a test failure
             }
+            else
+                logMessages(currentTestRunning + "test was successful");
         }
 
         [TestFixtureTearDown]
