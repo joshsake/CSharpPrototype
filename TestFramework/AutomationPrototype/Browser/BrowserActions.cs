@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 
 // Joshua Esquivel
+// This class contains the browser actions that are performed for the test.
 
 namespace AutomationPrototype.Browser
 {
@@ -21,9 +22,20 @@ namespace AutomationPrototype.Browser
             browserDriver = driver;
         }
 
+        // Perform a search in Bing with the provided text
         public void BingSearch(string search)
         {
+            IWebElement browserElement = null;
 
+            browserDriver.Navigate().GoToUrl("https://www.bing.com/");
+            browserDriver.FindElement(By.ClassName("b_searchbox")).Clear();
+            browserDriver.FindElement(By.ClassName("b_searchbox")).SendKeys(search);
+            browserDriver.FindElement(By.ClassName("b_searchboxSubmit")).Click();
+
+            Thread.Sleep(3000);
+
+            browserElement = browserDriver.FindElement(By.ClassName("b_secondaryFocus"));
+            Console.WriteLine("The element was found with this text: " + browserElement.Text);            
         }
 
         public void GoogleSearch(string search)
@@ -39,8 +51,6 @@ namespace AutomationPrototype.Browser
 
             browserElement = browserDriver.FindElement(By.ClassName("_Tgc"));
             Console.WriteLine("The element was found with this text: " + browserElement.Text);
-
-
         }
 
         public void YahooSearch(string search)
@@ -55,8 +65,7 @@ namespace AutomationPrototype.Browser
             Thread.Sleep(3000);
 
             browserElement = browserDriver.FindElement(By.XPath("//b[.='what is test automation']"));
-            Console.WriteLine("The element was found with this text: " + browserElement.Text);
-           
+            Console.WriteLine("The element was found with this text: " + browserElement.Text);           
         }
     }
 }

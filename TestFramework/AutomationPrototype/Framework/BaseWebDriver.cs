@@ -13,7 +13,6 @@ using NUnit;
 using NUnit.Framework;
 
 // Joshua Esquivel
-
 // This is the base class that the test classes and any other class can inherit from.
 // It's main purpose is to handle the creation of WebDriver instances, test setup, and test results. 
 
@@ -75,6 +74,9 @@ namespace AutomationPrototype.Framework
         public void TearDownFixture()
         {
             // Perform fixture result reporting here
+
+            logMessages("All tests have finished running");
+            prototypeDriver.Quit();
         }
 
         // Write a log message to the console or any other logger

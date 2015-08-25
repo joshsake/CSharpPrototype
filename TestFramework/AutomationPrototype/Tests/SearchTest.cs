@@ -10,14 +10,13 @@ using AutomationPrototype.Framework;
 using NUnit.Framework;
 
 // Joshua Esquivel
-
 // This class contains the test methods that will be called by NUnit during testing.
 
 namespace AutomationPrototype.Tests
 {
-
+    [TestFixture("Chrome")]
     [TestFixture("Firefox")]
-
+    [TestFixture("IE")]
     class SearchTest : BaseWebDriver
     {
         private string _browser;

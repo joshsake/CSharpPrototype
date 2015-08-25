@@ -8,7 +8,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 // Joshua Esquivel
-
 // This class handles the extensions that are needed for 
 
 namespace AutomationPrototype.Framework
