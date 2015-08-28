@@ -49,5 +49,15 @@ namespace AutomationPrototype.Tests
             browserActions = new BrowserActions(prototypeDriver);
             browserActions.YahooSearch("What is test automation");
         }
+
+        [Test]
+        public void AllSearchTest()
+        {
+            browserActions = new BrowserActions(prototypeDriver);
+            browserActions.BingSearch("What is test automation");
+            browserActions.GoogleSearch("Test automation");
+            browserActions.YahooSearch("What is test automation");
+        }
+
     }
 }

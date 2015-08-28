@@ -35,7 +35,7 @@ namespace AutomationPrototype.Browser
             Thread.Sleep(3000);
 
             browserElement = browserDriver.FindElement(By.ClassName("b_secondaryFocus"));
-            Console.WriteLine("The element was found with this text: " + browserElement.Text);            
+            Console.WriteLine("The Bing element was found with this text: " + browserElement.Text);            
         }
 
         public void GoogleSearch(string search)
@@ -50,7 +50,7 @@ namespace AutomationPrototype.Browser
             Thread.Sleep(3000);
 
             browserElement = browserDriver.FindElement(By.ClassName("_Tgc"));
-            Console.WriteLine("The element was found with this text: " + browserElement.Text);
+            Console.WriteLine("The Google element was found with this text: " + browserElement.Text);
         }
 
         public void YahooSearch(string search)
@@ -65,7 +65,7 @@ namespace AutomationPrototype.Browser
             Thread.Sleep(3000);
 
             browserElement = browserDriver.FindElement(By.XPath("//b[.='what is test automation']"));
-            Console.WriteLine("The element was found with this text: " + browserElement.Text);           
+            Console.WriteLine("The Yahoo element was found with this text: " + browserElement.Text);           
         }
     }
 }
